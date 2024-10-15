@@ -22,22 +22,34 @@ let computerScore = 0;
 
 function playRound(humanChoice, computerChoice) {
     if (humanChoice === computerChoice) {
-        console.log(`IT'S A TIE. Both chose ${humanChoice}.`);
+        return "tie";
     } else if (
         (humanChoice.toLowerCase() === "rock" && computerChoice === "scissors") ||
         (humanChoice.toLowerCase() === "paper" && computerChoice === "rock") ||
         (humanChoice.toLowerCase() === "scissors" && computerChoice === "paper")
     ) {
-        console.log(`You win! ${humanChoice} beats ${computerChoice}.`);
+        return "win";
     } else {
-        console.log(`You lose! ${computerChoice} beats ${humanChoice}.`);
+        return "lose";
     }
 }
 
 const humanChoice = getHumanChoice();
 const computerChoice = getComputerChoice();
 
+const result = playRound(humanChoice, computerChoice);
+
+if (result === "win") {
+    humanScore++;
+    console.log(`You win! ${humanChoice} beats ${computerChoice}.`)
+} else if (result === "lose") {
+    computerScore++;
+    console.log(`You lose! ${computerChoice} beats ${humanChoice}.`);
+} else {
+    console.log(`IT'S A TIE. Both chose ${humanChoice}.`);
+}
 console.log(humanChoice);
 console.log(computerChoice);
+console.log(`Score: Human - ${humanScore}, Computer - ${computerScore}`)
 playRound(humanChoice, computerChoice);
 
