@@ -1,2 +1,2 @@
-# instrument-website
-This is a recreation of the website called Instrument.
+# rock-paper-scissors
+This is a rock,paper,scissors game between the user and the computer.
